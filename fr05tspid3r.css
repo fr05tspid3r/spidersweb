@@ -76,8 +76,10 @@ nav a:hover {
 
 /* Add the following styles for the NFT image */
 img#nftImage {
-    max-width: 100%;
+    max-width: 60%;
     margin: 0 auto;
     display: block;
+    top: 50%;
+    left: 50%;
     margin-top: 20px;
 }
