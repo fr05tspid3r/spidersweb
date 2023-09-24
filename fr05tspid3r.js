@@ -2,7 +2,7 @@
 const web3 = new Web3(window.ethereum);
 
 // Assuming your contract ABI and address
-const contractAbi = ["0x37e98fa8054ac12d30f8b78e75fd6d92c272a1498b06e562abcfcc958641389d"]; // Replace with your ABI
+const contractAbi = [0x37e98fa8054ac12d30f8b78e75fd6d92c272a1498b06e562abcfcc958641389d]; // Replace with your ABI
 const contractAddress = "0x6267c586459A9ba4D63d4584f89D1e1f9941C47a"; // Replace with your contract address
 
 const contract = new web3.eth.Contract(contractAbi, contractAddress);
