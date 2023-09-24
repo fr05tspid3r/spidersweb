@@ -1,7 +1,5 @@
-// Initialize Web3.js and your contract here
 const web3 = new Web3(window.ethereum);
 
-// Assuming your contract ABI and address
 const contractAbi = [
 	{
 		"inputs": [],
@@ -446,12 +444,11 @@ const contractAbi = [
 		"stateMutability": "view",
 		"type": "function"
 	}
-]; // Replace with your ABI
-const contractAddress = "0x5e71f6d08BCb7622318Ce4239051235976DA50f9"; // Replace with your contract address
+];
+const contractAddress = "0x5e71f6d08BCb7622318Ce4239051235976DA50f9";
 
 const contract = new web3.eth.Contract(contractAbi, contractAddress);
 
-// Function to check for MetaMask
 function checkForMetaMask() {
     if (typeof window.ethereum !== 'undefined' && window.ethereum.isMetaMask) {
         // The user has MetaMask or another Ethereum wallet
@@ -464,27 +461,24 @@ function checkForMetaMask() {
     }
 }
 
-// Add a button to check for MetaMask
+
 const checkMetaMaskButton = document.createElement('button');
 checkMetaMaskButton.textContent = 'Check for MetaMask';
 checkMetaMaskButton.addEventListener('click', checkForMetaMask);
 
-// Function to mint NFT
 async function mintNFT() {
     try {
-        // Get the user's Ethereum address
+        
         const accounts = await web3.eth.getAccounts();
         const userAddress = accounts[0];
 
-        // Set the NFT name and image URI
+        
         const nftName = "CheddarBagel";
         const imageURI = "IMG_0306.jpeg";
 
-        // Estimate gas and gas price
         const gasEstimate = await contract.methods.mintNFT(nftName, imageURI).estimateGas({ from: userAddress });
         const gasPrice = await web3.eth.getGasPrice();
 
-        // Send a transaction to the mintNFT function
         const tx = {
             from: userAddress,
             to: contractAddress,
@@ -502,11 +496,9 @@ async function mintNFT() {
     }
 }
 
-// Add a button to mint the NFT
 const mintNFTButton = document.createElement('button');
 mintNFTButton.textContent = 'Mint NFT';
 mintNFTButton.addEventListener('click', mintNFT);
 
-// Append the buttons to your HTML
 document.body.appendChild(checkMetaMaskButton);
 document.body.appendChild(mintNFTButton);
