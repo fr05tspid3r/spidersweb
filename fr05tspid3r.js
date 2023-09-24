@@ -33,8 +33,8 @@ async function mintNFT() {
         const userAddress = accounts[0];
 
         // Set the NFT name and image URI
-        const nftName = "Your Preset Name";
-        const imageURI = "Your Preset Image URL";
+        const nftName = "CheddarBagel";
+        const imageURI = "IMG_0306.jpeg";
 
         // Estimate gas and gas price
         const gasEstimate = await contract.methods.mintNFT(nftName, imageURI).estimateGas({ from: userAddress });
