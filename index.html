@@ -1,36 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8"/>
-		<link rel="stylesheet" href="fr05tspid3r.css" />
-		<title></title>
-		<meta name="viewportcontent="width=device-width, initial-scale=1.0"" >
-	</head>
-	<header>
-		<nav>
-			<ul>
-				<li><a class="resume" href="#1">Resume</a></li>
-				<li><a class="finance" href="#2">Projects</a></li>
-				<li><a class="techonology" href="#3">Certifications</a></li>
-			</ul>
-		</nav>
-	</header>
-		
-	<body>
-		<section id="Opening">
-			<div class="opening-dock">
-				<h1>Welcome to my online resume click around to try it out!</h1>
-				<p>I've bin working with technolgy since</p>
-		
-			</div>
-		</section>
-		<section id="closing">
-			<div class="closing-doc">
-				<h2>Goals and Objectiies</h2>
-				<p>My Goals and Objectives art etc..</p>
-			</div>
-		</section>
-	</body>
+<html>
+<head>
+    <title>BagelCoinNFT DApp</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <!-- Check for MetaMask Button -->
+    <button id="checkMetaMaskButton">Check for MetaMask</button>
 
+    <!-- Mint NFT Button -->
+    <button id="mintNFTButton">Mint NFT</button>
+
+    <!-- Gas Price Label -->
+    <label for="gasPrice">Gas Price (Wei):</label>
+    <input type="text" id="gasPrice" placeholder="Gas Price" disabled>
+
+    <!-- Gas Estimate Label -->
+    <label for="gasEstimate">Gas Estimate:</label>
+    <input type="text" id="gasEstimate" placeholder="Gas Estimate" disabled>
+
+    <!-- NFT Description -->
+    <textarea id="nftDescription" placeholder="NFT Description"></textarea>
+
+    <!-- NFT Image Display -->
+    <img id="nftImage" src="Your_Preset_Image_URL" alt="NFT Image">
+
+    <!-- Transaction Status -->
+    <div id="transactionStatus"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
+    <script src="script.js"></script>
+</body>
 </html>
-
