@@ -1,0 +1,45 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.18;
+
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721Enumerable.sol";
+
+contract BagelCoinNFT is ERC721Enumerable {
+    struct NFT {
+        string name; 
+        string description;
+        string imageURI; // This field stores the image URL
+    }
+
+    NFT[] public nfts;
+
+    constructor() ERC721("BagelCoinNFT", "BCNFT") {}
+
+    function mintNFT(string memory name, string memory description, string memory imageURI) external {
+        uint256 tokenId = nfts.length;
+        nfts.push(NFT(name, description, imageURI));
+        _mint(msg.sender, tokenId);
+    }
+}
+
+//scenario.json
+
+{
+  "accounts": {
+    "account{0}": "0x6267c586459A9ba4D63d4584f89D1e1f9941C47a"
+  },
+  "linkReferences": {},
+  "transactions": [
+    {
+      "timestamp": 1695502775883,
+      "record": {
+        "value": "0",
+        "inputs": "()",
+        "parameters": [],
+        "name": "",
+        "type": "constructor",
+        "abi": "0x37e98fa8054ac12d30f8b78e75fd6d92c272a1498b06e562abcfcc958641389d",
+        "contractName": "BagelCoinNFT",
+        "bytecode": hopefully stays on remix
+
+
+
