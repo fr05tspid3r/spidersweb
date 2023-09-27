@@ -1,34 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>BagelCoinNFT DApp</title>
-    <link rel="stylesheet" type="text/css" href="fr05tspid3r.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mint NFT</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@1.3.5/dist/web3.min.js"></script>
 </head>
 <body>
-    <!-- Check for MetaMask Button -->
-    <button id="checkMetaMaskButton">Check for MetaMask</button>
+    <h1>Mint NFT</h1>
+    <button id="mintButton">Mint NFT</button>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Check if MetaMask is installed
+            if (typeof window.ethereum !== 'undefined') {
+                const web3 = new Web3(window.ethereum);
+                const mintButton = document.getElementById('mintButton');
+                
+                mintButton.addEventListener('click', async () => {
+                    try {
+                        // Request account access if needed
+                        await window.ethereum.request({ method: 'eth_requestAccounts' });
 
-    <!-- Mint NFT Button -->
-    <button id="mintNFTButton">Mint NFT</button>
+                        // Now MetaMask is connected, and you can proceed with the transaction
+                        const abi = [/* Replace with your contract's ABI */];
+                        const contractAddress = 'your-contract-address'; // Replace with your contract's address
+                        const contract = new web3.eth.Contract(abi, contractAddress);
 
-    <!-- Gas Price Label -->
-    <label for="gasPrice">Gas Price (Wei):</label>
-    <input type="text" id="gasPrice" placeholder="Gas Price" disabled>
+                        const tokenURI = 'https://your-ipfs-image-link'; // Replace with your token URI
+                        const accounts = await web3.eth.getAccounts();
+                        const senderAddress = accounts[0];
 
-    <!-- Gas Estimate Label -->
-    <label for="gasEstimate">Gas Estimate:</label>
-    <input type="text" id="gasEstimate" placeholder="Gas Estimate" disabled>
+                        // Call the mintNFT function on your smart contract
+                        const result = await contract.methods.mintNFT(tokenURI).send({ from: senderAddress });
 
-    <!-- NFT Description -->
-    <textarea id="nftDescription" placeholder="NFT Description"></textarea>
-
-    <!-- NFT Image Display -->
-    <img id="nftImage" src="IMG_0306.jpeg" alt="NFT Image">
-
-    <!-- Transaction Status -->
-    <div id="transactionStatus"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/web3@1.5.2/dist/web3.min.js"></script>
-    <script src="fr05tspid3r.js"></script>
+                        if (result.status) {
+                            alert("NFT minted successfully!");
+                        } else {
+                            alert("NFT minting failed!");
+                        }
+                    } catch (error) {
+                        console.error('Error:', error);
+                    }
+                });
+            } else {
+                alert('Please install MetaMask to use this application.');
+            }
+        });
+    </script>
 </body>
 </html>
+
