@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (typeof window.ethereum !== 'undefined') {
         const web3 = new Web3(window.ethereum);
         const mintButton = document.getElementById('mintButton');
-
+//🔥Burnt
         mintButton.addEventListener('click', async () => {
             try {
                 await window.ethereum.request({ method: 'eth_requestAccounts' });
@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const abi = [
                     //ABI
                 ];
+
+
                 const contractAddress = 'contract-address'; //contract address
                 const contract = new web3.eth.Contract(abi, contractAddress);
 
