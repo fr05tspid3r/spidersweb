@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const contractAddress = 'your-contract-address'; // Replace with your contract's address
                 const contract = new web3.eth.Contract(abi, contractAddress);
 
-                const tokenURI = 'https://your-ipfs-image-link'; // Replace with your token URI
+                const tokenURI = 'https://github.com/fr05tspid3r/spidersweb/blob/main/IMG_0306.jpeg?raw=true'; // Replace with your token URI
                 const accounts = await web3.eth.getAccounts();
                 const senderAddress = accounts[0];
 
