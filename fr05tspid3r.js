@@ -1,26 +1,24 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    // Check if MetaMask is installed
     if (typeof window.ethereum !== 'undefined') {
         const web3 = new Web3(window.ethereum);
         const mintButton = document.getElementById('mintButton');
 
         mintButton.addEventListener('click', async () => {
             try {
-                // Request account access if needed
                 await window.ethereum.request({ method: 'eth_requestAccounts' });
 
-                // Now MetaMask is connected, and you can proceed with the transaction
+                
                 const abi = [
-                    // Replace with your contract's ABI
+                    //ABI
                 ];
-                const contractAddress = 'your-contract-address'; // Replace with your contract's address
+                const contractAddress = 'contract-address'; //contract address
                 const contract = new web3.eth.Contract(abi, contractAddress);
 
-                const tokenURI = 'https://github.com/fr05tspid3r/spidersweb/blob/main/IMG_0306.jpeg?raw=true'; // Replace with your token URI
+                const tokenURI = 'https://github.com/fr05tspid3r/spidersweb/blob/main/IMG_0306.jpeg?raw=true'; //URL
                 const accounts = await web3.eth.getAccounts();
                 const senderAddress = accounts[0];
 
-                // Call the mintNFT function on your smart contract
+                //mintNFT def
                 const result = await contract.methods.mintNFT(senderAddress, tokenURI).send({ from: senderAddress });
 
                 if (result.status) {
