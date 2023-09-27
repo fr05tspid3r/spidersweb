@@ -49,3 +49,12 @@ h1 {
     color: #ff0000;
     font-weight: bold;
 }
+
+
+img {
+    position: relative;
+    max-height: 40vh;
+    max-width: 40%;
+    padding-left: 30%;
+    /*border:*/ 
+}
